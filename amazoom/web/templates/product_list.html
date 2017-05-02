@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block body %}
+  <div class="row"> 
+    {% for product in object_list %}
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="https://images6.alphacoders.com/718/thumb-1920-718467.jpg">
+          <div class="caption">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>
+              <a href="#" class="btn btn-primary" role="button">
+                <i class="fa fa-shopping-cart"></i> Comprar
+              </a>
+              <label class="pull-right">$ {{ product.price|intcomma }}</label>
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock body %}

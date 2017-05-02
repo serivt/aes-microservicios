@@ -4,7 +4,7 @@ import dj_database_url
 from unipath import Path
 
 
-BASE_DIR = Path(__file__).ancestor(2)
+BASE_DIR = Path(__file__).ancestor(3)
 
 # Application definition
 
@@ -15,6 +15,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'web',
 ]
 
 MIDDLEWARE = [
@@ -32,7 +34,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR.child('web').child('templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
